@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ui/onboard/onboard_screen.dart';
-
+import 'package:flutter_ui/onboard/login_screen.dart';
 void main() {
   runApp( MyApp());
 }
@@ -18,10 +17,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: Scaffold(
-        backgroundColor: Colors.white,
-        body: OnboardScreen(),
-      ),
+      home:LoginScreen(),
     );
   }
 }

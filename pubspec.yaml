@@ -28,10 +28,15 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  blurrycontainer: ^2.1.0
   cupertino_icons: ^1.0.2
   flutter:
     sdk: flutter
   flutter_bloc: ^8.1.6
+  flutter_svg: ^2.0.10+1
+  gauge_chart: ^1.0.4
+  glassmorphism_ui: ^0.3.0
+  google_fonts: ^6.2.1
   otp_text_field_v2: ^1.0.3
 
 dev_dependencies:

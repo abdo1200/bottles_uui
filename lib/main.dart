@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ui/onboard/login_screen.dart';
+import 'package:flutter_ui/first_screen.dart';
+import 'package:flutter_ui/second_screen.dart';
 void main() {
   runApp( MyApp());
 }
@@ -16,8 +17,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
+
       ),
-      home:LoginScreen(),
+      home:FirstScreen(),
     );
   }
 }

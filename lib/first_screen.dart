@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_ui/constants.dart';
-import 'package:blurrycontainer/blurrycontainer.dart';
 import 'package:flutter_ui/second_screen.dart';
 import 'package:glassmorphism_ui/glassmorphism_ui.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -12,158 +10,124 @@ class FirstScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SizedBox(
-        width: width(context),
-        height: height(context),
-        child: Stack(
-          children: [
-            // Positioned.fill(child: Container(color: Colors.white,)),
-            SizedBox(
-              width: width(context),
-              height: height(context) * .6,
-              child: Image.asset(
-                imagePath + "blur.png",
+        body: SizedBox(
+            width: width(context),
+            height: height(context),
+            child: Stack(children: [
+              SizedBox(
                 width: width(context),
                 height: height(context) * .6,
-                fit: BoxFit.cover,
+                child: Image.asset(
+                  imagePath + "blur.png",
+                  fit: BoxFit.cover,
+                ),
               ),
-            ),
-            SizedBox(
+              SizedBox(
                 width: width(context),
                 height: height(context) * .8,
                 child: Transform.rotate(
-                    angle: -.4, child: Image.asset(imagePath + "bottle.png"))),
-            Positioned(
-              top: height(context) * .54,
-              child: Container(
-                alignment: Alignment.center,
-                width: width(context),
-                child: RotatedBox(
-                  quarterTurns: 2,
-                  child: ClipPath(
-                    clipper: OutSideCustomShapeClipper(),
-                    child: Container(
-                      width: width(context) * .5,
-                      height: height(context)*.06,
-                      color: Colors.white,
-                    ),
+                  angle: -.3,
+                  child: Image.asset(
+                    imagePath + "bottle.png",
                   ),
                 ),
               ),
-            ),
-            Positioned(
-              bottom: 0,
-              child: Container(
-                width: width(context),
-                height: height(context) * .4,
-                color: Colors.white,
-                child: Column(
-                  children: [
-                    SizedBox(
-                      height: 40,
-                    ),
-                    Text(
-                      "Maintain Daily Habbit",
-                      style: GoogleFonts.lato(
-                        color: const Color.fromARGB(255, 4, 72, 128),
-                        fontSize: 25,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(20),
-                      child: Text(
-                        textAlign: TextAlign.center,
-                        "A Habbit tracker is a simple way to messure when you did a habbit, the most basic format is to get calender",
-                        style: GoogleFonts.lato(
-                          fontSize: 15,
-                          color: const Color.fromARGB(255, 139, 138, 138),
+              Positioned(
+                  top: height(context) * .54,
+                  child: Container(
+                    alignment: Alignment.center,
+                    width: width(context),
+                    child: RotatedBox(
+                      quarterTurns: 2,
+                      child: ClipPath(
+                        clipper: OutSideCustomShapeClipper(),
+                        child: Container(
+                          width: width(context) * .5,
+                          height: height(context) * .06,
+                          color: Colors.white,
                         ),
                       ),
                     ),
-                    InkWell(
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => SecondScreen(),
-                            ));
-                      },
-                      child: Stack(
-                        alignment: Alignment.center,
-                        children: [
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(10),
-                            child: BlurredImage(
-                              blur: 2,
-                              image: Image.asset(
-                                imagePath + "blur.png",
-                                fit: BoxFit.cover,
-                                width: 200,
-                                height: 60,
-                              ),
-                            ),
+                  )),
+              Positioned(
+                  bottom: 0,
+                  child: Container(
+                    width: width(context),
+                    height: height(context) * .4,
+                    color: Colors.white,
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          height: 40,
+                        ),
+                        Text(
+                          "Maintain Daily Habbit",
+                          style: GoogleFonts.lato(
+                              fontSize: 25,
+                              color: Color.fromARGB(225, 4, 72, 128),
+                              fontWeight: FontWeight.bold),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(20),
+                          child: Text(
+                            "A habbit tracker is simple way to messure when you did a habbit, the most basic format is to get a calender",
+                            style: GoogleFonts.lato(
+                                fontSize: 15,
+                                color: Color.fromARGB(225, 139, 138, 138)),
+                            textAlign: TextAlign.center,
                           ),
-                          Container(
-                              alignment: Alignment.center,
-                              width: 200,
-                              height: 60,
-                              decoration: BoxDecoration(
+                        ),
+                        SizedBox(height: 20),
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => SecondScreen(),
+                                ));
+                          },
+                          child: Stack(
+                            children: [
+                              ClipRRect(
                                 borderRadius: BorderRadius.circular(20),
-                                // color: Colors.white.withOpacity(.5),
+                                child: BlurredImage(
+                                  image: Image.asset(imagePath + "blur.png",
+                                      fit: BoxFit.cover,
+                                      height: 60,
+                                      width: 200),
+                                ),
                               ),
-                              child: Text(
-                                "Get Started",
-                                style: GoogleFonts.lato(
-                                    fontSize: 17,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white),
-                              )),
-                        ],
-                      ),
-                    )
-                  ],
-                ),
-              ),
-            )
-          ],
-        ),
-      ),
-    );
+                              Container(
+                                  height: 60,
+                                  width: 200,
+                                  alignment: Alignment.center,
+                                  child: Text("Get Started",
+                                      style: GoogleFonts.lato(
+                                          fontSize: 15,
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold)))
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                  ))
+            ])));
   }
 }
 
 class OutSideCustomShapeClipper extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
-    double loc = 10;
-    double s = 10;
     final path = Path()
-      ..cubicTo(
-        0,
-        0,
-        (size.width * .10),
-        size.height * .02,
-        (size.width * .25),
-        size.height * .4,
-      )
-      ..cubicTo(
-        (size.width * .25),
-        size.height * .4,
-        (size.width * .5),
-        size.height,
-        (size.width * .75),
-        size.height * .4,
-      )
-      ..cubicTo(
-        (size.width * .75),
-        size.height * .4,
-        (size.width * .85),
-        size.height * .02,
-        (size.width),
-        0,
-      )
-      ..close(); // Complete the shape
+      ..cubicTo(0, 0, size.width * .1, size.height * .02, size.width * .25,
+          size.height * .4)
+      ..cubicTo(size.width * .25, size.height * .4, size.width * .5,
+          size.height, size.width * .75, size.height * .4)
+      ..cubicTo(size.width * .75, size.height * .4, size.width * .85,
+          size.height * .02, size.width, 0)
+      ..close();
+
     return path;
   }
 
